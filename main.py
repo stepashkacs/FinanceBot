@@ -1,7 +1,7 @@
 import asyncio
 import logging
 
-from aiogram import Bot, Dispatcher
+from aiogram import Bot, Dispatcher, F
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 from aiogram.filters import CommandStart, Command
@@ -24,6 +24,11 @@ async def start(message: Message):
 @dp.message(Command('help'))
 async def get_help(message: Message):
     await message.answer('Это команда help ')
+
+
+@dp.message(F.text.in_(['Финансы', 'Finance', 'Начать']))
+async def finance_count(message: Message):
+    await message.answer('Начинаю подсчитывать:')
 
 
 async def main():
