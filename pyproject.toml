@@ -12,6 +12,9 @@ asyncpg = "^0.29.0"
 sqlalchemy = "^2.0.35"
 alembic = "^1.13.2"
 
+[virtualenvs]
+in-project = false
+
 
 [build-system]
 requires = ["poetry-core"]
