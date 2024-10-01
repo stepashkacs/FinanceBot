@@ -35,10 +35,10 @@ async def finance_count(message: Message):
 
 @router.message(F.text == 'Обо мне')
 async def about_me(message: Message):
-    await message.reply('Мой Контакты',
-        reply_markup=kb.about_me
+    await message.reply(
+        'Мой Контакты',
+        reply_markup=kb.about_me,
     )
-
 
 
 @router.message(Command('reg'))
@@ -63,3 +63,6 @@ async def reg_user_id(message: Message, state: FSMContext):
         f'Регистрация прошла успешно.\nФамилия: {data["f_name"]}\nИмя: {data["s_name"]}\nId: {data["id"]}'
     )
     await state.clear()
+
+
+@router.callback_query

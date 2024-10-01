@@ -8,13 +8,11 @@ from aiogram.enums import ParseMode
 from config import API_TOKEN
 from app.handlers import router
 
-default_properties = DefaultBotProperties(parse_mode=ParseMode.HTML)
-
-bot = Bot(token=API_TOKEN, default=default_properties)
-dp = Dispatcher()
-
 
 async def main():
+    default_properties = DefaultBotProperties(parse_mode=ParseMode.HTML)
+    bot = Bot(token=API_TOKEN, default=default_properties)
+    dp = Dispatcher()
     dp.include_router(router)
     await dp.start_polling(bot)
 
